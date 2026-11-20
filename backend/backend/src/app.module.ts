@@ -5,10 +5,11 @@ import { TempController } from './temp/temp.controller';
 import { TempService } from './temp/temp.service';
 import { TempModule } from './temp/temp.module';
 import { PrismaModule } from './prisma.module';
+import { KafkaModule } from './kafka/kafka.module';
 
 @Module({
-  imports: [TempModule,PrismaModule],
-  controllers: [AppController, TempController],
-  providers: [AppService, TempService],
+  imports: [TempModule,PrismaModule, KafkaModule],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}
