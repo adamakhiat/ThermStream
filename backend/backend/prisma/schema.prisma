@@ -1,0 +1,17 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model sensor_readings {
+  id        Int    @id @default(autoincrement())
+  sensor_id String @db.VarChar(100)
+  timestamp String @db.VarChar(100)
+  metric    String @db.VarChar(50)
+  value     Float
+  unit      String @db.VarChar(20)
+}
