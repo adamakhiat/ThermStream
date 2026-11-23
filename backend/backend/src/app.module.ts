@@ -6,10 +6,12 @@ import { TempService } from './temp/temp.service';
 import { TempModule } from './temp/temp.module';
 import { PrismaModule } from './prisma.module';
 import { KafkaModule } from './kafka/kafka.module';
-
+import { EventsGateway } from './events/events.gateway';
+import { EventsModule } from './events/events.module';
+import { ScheduleModule } from '@nestjs/schedule';
 @Module({
-  imports: [TempModule,PrismaModule, KafkaModule],
+  imports: [TempModule,PrismaModule, KafkaModule, EventsModule,ScheduleModule.forRoot()],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, EventsGateway],
 })
 export class AppModule {}
